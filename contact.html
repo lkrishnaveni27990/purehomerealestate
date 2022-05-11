@@ -1,530 +1,541 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/jpeg;base64,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" type="image/gif" sizes="16x16">
-    <title>Ibw online store for sanitary ware, faucets, accessories, water savings,plumbling equipments etc </title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/style-starter.css">
-    <!-- CSS only -->
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
-    <script type="text/javascript" src="js/jquery-1.8.0.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-</head>
-<body>
-    <header class="pb-5">
-      <div class="p-3 bg-dark text-white">
-        <div class="flexMain">
-          <div class="flex1">
-      
-          </div>
-          <div class="flex2 text-center">
-            <div><strong>UPTO 30% OFF ON OUR BUNDLE IDEAS</strong></div>
-          </div>
-          <div class="flex1">
-      
-          </div>
-        </div>
-      </div>
-      <div id="menuHolder" class="pt-1 ">
-        <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
-          <div class="flexMain">
-            <div class="flex2">
-              <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea;background-color: #a7c23d;" onclick="menuToggle()"><i class="fas fa-bars me-2"></i> MENU</button>
+              <html lang="en">
+              <head>
+                  <meta charset="UTF-8">
+                  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <link rel="icon" href="assets/images/logo.png">
+                  <title>Pure home real estate</title>
+                  <link rel="stylesheet" href="assets/css/style.css">
+                  <link rel="stylesheet" href="assets/css/style-starter.css">
+                  <!-- CSS only -->
+                  <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+                  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+                  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+                  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
               
-            </div>
-            <div class="flex3 text-center p-3 bg-gray-2"  style="font-style: oblique;"id="siteBrand">
-IBW KITCHEN
-AND SANIARY WARES            </div>
-      
-            <div class="flex2 text-end d-block d-md-none">
-              <button class="whiteLink siteLink"><i class="fas fa-search"></i></button>
-            </div>
-      
-            <div class="flex2 text-end d-none d-md-block">
-              <a class="whiteLink siteLink" href="#"><i class="fa-solid fa-cart-arrow-down bg-primary"></i>cart</a>
-                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-              <button class="blackLink siteLink" style="background-color: #a7c23d;">Login</button>
-            </div>
-          </div>
-        </div>
-      
-        <div id="menuDrawer" class="bg-secondary">
-          <div class="p-4 border-bottom">
-            <div class='row'>
-              <div class="col">
-                <select class="noStyle">
-                  <option value="english">English</option>
-                  <option value="spanish">Spanish</option>
-                  <option value="french">French</option>
-                  <option value="italian">Italian</option>
-                  <option value="hebrew">Hebrew</option>
-                </select>
-              </div>
-              <div class="col text-end ">
-                <i class="fas fa-times" role="btn" onclick="menuToggle()"></i>
-              </div>
-            </div>
-          </div>
-            <a href="#" class="nav-menu-item"><i class="fas fa-home me-3"></i>SANITARY WARES</a>
-            <a href="#" class="nav-menu-item"><i class="fa-solid fa-water me-3"></i>FAUCETS</a>
-            <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>ACCESSORIES</a>
-            <a href="#" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>FLOORING</a>
-            <a href="#" class="nav-menu-item"><i class="fa-solid fa-water me-3"></i>WATER SAVING</a>
-            <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>SPARE PARTS</a>
-            <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>PLUMBMING</a>
-          </div>
-        </div>
-      </div>
-      <section class="pt-3 pb-3">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2">
-              <div class="btn-group">
-                <button type="button" class="btn btn-secondary">SANITARY WARE</button>
-                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-              </div>
-
-            </div>
-            
-            <div class="col-md-2">
-              <div class="btn-group">
-                <button type="button" class="btn btn-secondary">FAUCETS</button>
-                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-              </div>
-
-            </div>
-            <div class="col-md-2">
-              <div class="btn-group">
-                <button type="button" class="btn btn-secondary">ACCESSORIES</button>
-                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-              </div>
-
-            </div>
-            <div class="col-md-2">
-              <div class="btn-group">
-                <button type="button" class="btn btn-secondary">FLOORING</button>
-                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-              </div>
-              </div>
+                  <script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+              <script type="text/javascript" src="js/bootstrap.min.js"></script>
               
-              <div class="col-md-2">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-secondary">WATER SAVINGS</button>
-                  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                  </ul>
-                </div>
-                </div>
-  
-              <div class="col-md-2">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-secondary" >SPARE PARTS</button>
-                  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"  data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                  </ul>
-                </div>
-  
-              </div>
-
-
-            </div>
-
-          </div>
-        </div>
-
-      </section>
-    </header>
-
-    <section class="bg-light pt-5 pb-5 mt-5 text-white" style="margin-top: 50rem;">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <h3></h3>
-  
-            </div>
-            <div class="col-md-1">
-              <h2></h2>
-            </div>
-            <div class="col-md-4">
-              <h3></h3>
-            </div>
-            <div class="col-md-1">
-              <h2></h2>
-            </div>
-            <div class="col-md-3">
-              <h3></h3>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="pb-5 pt-5">
-          <div class="container">
+              </head>
+              <body>
+                  <header class="pb-5">
+                    <div class="p-3 text-white" style="background-color:#a7c23d;">
+                      <div class="flexMain">
+                        <div class="flex1">
+                          <div>purehomerealestate@gmail.com</div>
+                        </div>
+                        <div class="flex2">
+              
+                        </div>
+                        <div class="flex1 text-end">
+                          <div><i class="fa-brands fa-whatsapp"> - +971582902264</i>
+                          </i>
+                          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP8AAACACAMAAADzok/sAAAAIVBMVEX/AAAAcy////8AAABVonRUVFTAHAz/Pz/AAADVKB3VFRVVusOnAAAAsklEQVR4nO3PyQ2AMBAEsHCGpP+CqQH2gUbYHbi1mnPJVuz7fx0o8vf39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f3z+bv7+/v/87Ys1X/fc3m7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7++fzd/f39/f3/+5eWSr/q8tm7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/fzZ/f39/f/8//m8wasZBHv/7pwAAAABJRU5ErkJggg==" style="width: 2rem;height:2rem" alt="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="menuHolder" class="pt-1 ">
+                      <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
+                        <div class="flexMain">
+                          <div class="flex2">
+                            <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea;background-color: #a7c23d;" onclick="menuToggle()"><i class="fas fa-bars me-2"></i> MENU</button>
+                            
+                          </div>
+                          <div class="flex3 text-center p-3 bg-gray-2"  style="font-style: oblique;"id="siteBrand">
+                            <a href="" class="logo"><img src="assets/images/logo.png" style="height:4rem"></a>
+                            <div></div>
+                            PURE HOME REAL ESTATE
+                                     </div>
+                    
+                          <div class="flex2 text-end d-block d-md-none">
+                            <button class="whiteLink siteLink"><i class="fas fa-search"></i></button>
+                          </div>
+                    
+                          <div class="flex2 text-end d-none d-md-block">
+                          </div>
+                        </div>
+                      </div>
+                    
+                      <div id="menuDrawer" class="bg-secondary">
+                        <div class="p-4 border-bottom">
+                          <div class='row'>
+                            <div class="col">
+                              <select class="noStyle">
+                                <option value="english">English</option>
+                                <option value="spanish">Spanish</option>
+                                <option value="french">French</option>
+                                <option value="italian">Italian</option>
+                                <option value="hebrew">Hebrew</option>
+                              </select>
+                            </div>
+                            <div class="col text-end ">
+                              <i class="fas fa-times" role="btn" onclick="menuToggle()"></i>
+                            </div>
+                          </div>
+                        </div>
+                          <a href="#" class="nav-menu-item"><i class="fas fa-home me-3"></i>Buy</a>
+                          <a href="#" class="nav-menu-item"><i class="fa-solid fa-water me-3"></i>Rent</a>
+                          <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Communities</a>
+                          <a href="#" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>OffPlan Projects</a>
+                          <a href="#" class="nav-menu-item"><i class="fa-solid fa-water me-3"></i>Landlords</a>
+                          <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>More</a>
+                          <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Contact Us</a>
+                        </div>
+                      </div>
+                    </div>
+                    <section class="pt-3 pb-3">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-2">
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-secondary">BUY</button>
+                              <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                              </ul>
+                            </div>
+              
+                          </div>
+                          
+                          <div class="col-md-2">
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-secondary">RENT</button>
+                              <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                              </ul>
+                            </div>
+              
+                          </div>
+                          <div class="col-md-2">
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-secondary">COMMUNITIES</button>
+                              <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                              </ul>
+                            </div>
+              
+                          </div>
+                          <div class="col-md-2">
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-secondary">PROJECTS</button>
+                              <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                              </ul>
+                            </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                              <div class="btn-group">
+                                <button type="button" class="btn btn-secondary">LANDLORDS</button>
+                                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                  <li><hr class="dropdown-divider"></li>
+                                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                </ul>
+                              </div>
+                              </div>
+                
+                            <div class="col-md-2">
+                              <div class="btn-group">
+                                <button type="button" class="btn btn-secondary" >MORE</button>
+                                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"  data-bs-toggle="dropdown" aria-expanded="false">
+                                  <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                  <li><hr class="dropdown-divider"></li>
+                                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                </ul>
+                              </div>
+                
+                            </div>
+              
+              
+                          </div>
+              
+                        </div>
+                      </div>
+              
+                    </section>
+                  </header>
+              
+                  <section class="bg-light pt-5 pb-5 mt-5 text-white" style="margin-top: 50rem;">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <h3></h3>
+              
+                        </div>
+                        <div class="col-md-1">
+                          <h2></h2>
+                        </div>
+                        <div class="col-md-4">
+                          <h3></h3>
+                        </div>
+                        <div class="col-md-1">
+                          <h2></h2>
+                        </div>
+                        <div class="col-md-3">
+                          <h3></h3>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="pb-5 pt-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 pb-5">
+                                <h2>
+                                    CONTACT US
+                                </h2>
+                                <hr>
+                                <br>
+                                <div class="row ">
+                              <div class="col-md-3 ">
+                                  <br>
+                                  <h4>lOCATE US</h4>
+                                  <p>Suite #. 403, commercial tower,
+                                      Al Wadah, Abu Dhabi, U A E</p>
+                              </div>
+                              <div class="col-md-3">
+                                  <br>
+                                  <h4>CALL US</h4>
+                                  <p>+971 24466775</p>
+                              </div>
+                              <div class="col-md-3">
+                                  <br>
+                                  <h4>MAIL US</h4>
+                                  <p>help@purehomerealestate.com</p>
+                              </div>
+                              <div class="col-md-3">
+                                  <br>
+                                  <h4>BUSINESS HOURS</h4>
+                                  <p>Monday - Saturday: 9 am - 7.30 pm
+                                      <br>
+                                      Sunday: Holiday</p>
+                              </div>
+                          </div>
+                          <div class="row pt-5">
+                              <div class="col-md-6 bg-secondary">
+                                  <!--Section: Contact v.2-->
+          <section class="mb-4">
+          
+              <!--Section heading-->
+              <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+              <!--Section description-->
+              <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+                  a matter of hours to help you.</p>
+          
               <div class="row">
-                  <div class="col-md-12 pb-5">
-                      <h2>
-                          CONTACT US
-                      </h2>
-                      <hr>
-                      <br>
-                      <div class="row ">
-                    <div class="col-md-3 ">
-                        <br>
-                        <h4>lOCATE US</h4>
-                        <p>Suite #. 104, Al Ferdous Tower,
-                            Al Salam St., Abu Dhabi, U A E</p>
-                    </div>
-                    <div class="col-md-3">
-                        <br>
-                        <h4>CALL US</h4>
-                        <p>+971 2 444 1023</p>
-                    </div>
-                    <div class="col-md-3">
-                        <br>
-                        <h4>MAIL US</h4>
-                        <p>help@ibwkitchenandsanitaryware.com</p>
-                    </div>
-                    <div class="col-md-3">
-                        <br>
-                        <h4>BUSINESS HOURS</h4>
-                        <p>Monday - Saturday: 9 am - 7.30 pm
-                            <br>
-                            Sunday: Holiday</p>
-                    </div>
-                </div>
-                <div class="row pt-5">
-                    <div class="col-md-6 bg-secondary">
-                        <!--Section: Contact v.2-->
-<section class="mb-4">
-
-    <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
-    <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-        a matter of hours to help you.</p>
-
-    <div class="row">
-
-        <!--Grid column-->
-        <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <label for="name" class="">Your name</label>
-
-                            <input type="text" id="name" name="name" class="form-control">
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <label for="email" class="">Your email</label>
-
-                            <input type="text" id="email" name="email" class="form-control">
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="md-form mb-0">
-                            <label for="subject" class="">Subject</label>
-
-                            <input type="text" id="subject" name="subject" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row pb-3">
-
-                    <!--Grid column-->
-                    <div class="col-md-12">
-
-                        <div class="md-form">
-                            <label for="message">Your message</label>
-
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                        </div>
-
-                    </div>
-                </div>
-                <!--Grid row-->
-
-            </form>
-
-            <div class="text-center text-md-left">
-                <a class="btn btn-secondary" onclick="document.getElementById('contact-form').submit();">Send</a>
-            </div>
-            <div class="status"></div>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-       
-        <!--Grid column-->
-
-    </div>
-
-</section>
-<!--Section: Contact v.2-->
-                    </div>
-                    <div class="col-md-6 pl-5">
-                        <h3 class="bg-secondary text-center" width="600">Get Directions</h3>
-                        
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29045.43423256596!2d54.360863582750696!3d24.49656699050236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e665a117643df%3A0x68d093559383d625!2sAl%20Zahiyah%20-%20Abu%20Dhabi!5e0!3m2!1sen!2sae!4v1652084626238!5m2!1sen!2sae"  height="450" style="border:0;width:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        
-                    </div>
-                </div>
-                     
+          
+                  <!--Grid column-->
+                  <div class="col-md-9 mb-md-0 mb-5">
+                      <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+          
+                          <!--Grid row-->
+                          <div class="row">
+          
+                              <!--Grid column-->
+                              <div class="col-md-6">
+                                  <div class="md-form mb-0">
+                                      <label for="name" class="">Your name</label>
+          
+                                      <input type="text" id="name" name="name" class="form-control">
+                                  </div>
+                              </div>
+                              <!--Grid column-->
+          
+                              <!--Grid column-->
+                              <div class="col-md-6">
+                                  <div class="md-form mb-0">
+                                      <label for="email" class="">Your email</label>
+          
+                                      <input type="text" id="email" name="email" class="form-control">
+                                  </div>
+                              </div>
+                              <!--Grid column-->
+          
+                          </div>
+                          <!--Grid row-->
+          
+                          <!--Grid row-->
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="md-form mb-0">
+                                      <label for="subject" class="">Subject</label>
+          
+                                      <input type="text" id="subject" name="subject" class="form-control">
+                                  </div>
+                              </div>
+                          </div>
+                          <!--Grid row-->
+          
+                          <!--Grid row-->
+                          <div class="row pb-3">
+          
+                              <!--Grid column-->
+                              <div class="col-md-12">
+          
+                                  <div class="md-form">
+                                      <label for="message">Your message</label>
+          
+                                      <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                  </div>
+          
+                              </div>
+                          </div>
+                          <!--Grid row-->
+          
+                      </form>
+          
+                      <div class="text-center text-md-left">
+                          <a class="btn btn-secondary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                      </div>
+                      <div class="status"></div>
                   </div>
+                  <!--Grid column-->
+          
+                  <!--Grid column-->
+                 
+                  <!--Grid column-->
+          
               </div>
-          </div>
-      </section>
-
-      <section class="pb-4"> 
-        
-        <a href="https://api.whatsapp.com/send?phone=971582902264" style="display:inline-block; padding:16px; border-radius: 8rem; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;" >
-          <i class="fa-brands fa-whatsapp"></i></a>
-      
-      </section>
-    <!-- footer -->
-    <footer class="footer-w3ls text-center py-5 pt-5" style="background-color:#a7c23d">
-        <div class="container pt-4">
-            <div class="row">
-           <div class="col-md-3 text-center " >
-               <h4 class="">IBW Kitchen and Bathwares</h4>
-               <p class="">- " we make your dream designs"</p>
-           </div>
-           <div class="col-md-3  pl-5">
-            <h4 class="">Quick Links</h4>
-            <p class="" ><a href="index2.html" style="text-decoration:none;color:black">Home</p></a>
-            <p class=""><a href="about.html" style="text-decoration:none;color: black;">About Us</p></a>
-            <p class=""><a href="contact.html" style="text-decoration:none;color: black;">Contact Us</p></a>
-            <p class=""><a href="privacy.html" style="text-decoration:none;color: black;">Privacy Policy</p></a>
-            <p class=""><a href="terms.html" style="text-decoration:none;color: black;">Terms and Conditions</p></a>
-
-        </div>
-        <div class="col-md-3">
-            <h4 class="">Get in Touch</h4>
-            <p class="" >help@ibwkitchenandsanitaryware.com</p></a>
-        </div>
-        <div class="col-md-3">
-               <button class="btn btn-danger">Be Our Partner</button>
-        </div>
-    </div>
-  </div>
-
-            <!-- copyright -->
-            
-            </footer>
-    <footer1 class="bg-success text-center">
-      <div class="row ">
-        <div class="col-md-12">
-          <p class="copy-right-w3  mt-5 p-2">© 2022 Official Page. All rights reserved | Design by
-            <a href="http://oneavanue.com" target="_blank"> ONE AVANUNE</a>
-        </p>
-
-        </div>
-
-      </div>
-
-    </footer1>
-    <!-- //footer -->
-
-    <!-- Js scripts -->
-    <!-- move top -->
-    <button onclick="topFunction()" id="movetop" title="Go to top">
-        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
-    </button>
-    <script>
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("movetop").style.display = "block";
-            } else {
-                document.getElementById("movetop").style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
-    <!-- //move top -->
-
-    <!-- common jquery plugin -->
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <!-- //common jquery plugin -->
-
-    <!-- lightbox -->
-    <script src="assets/js/lightbox-plus-jquery.min.js"></script>
-    <!-- lightbox -->
-
-    <!-- testimonials owlcarousel -->
-    <script src="assets/js/owl.carousel.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.owl-two').owlCarousel({
-                loop: true,
-                margin: 30,
-                nav: false,
-                responsiveClass: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                autoplaySpeed: 1000,
-                autoplayHoverPause: false,
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: false
-                    },
-                    480: {
-                        items: 1,
-                        nav: false
-                    },
-                    667: {
-                        items: 1,
-                        nav: false
-                    },
-                    1000: {
-                        items: 1,
-                        nav: false
-                    }
-                }
-            })
-        })
-    </script>
-    <!-- //script for Testimonials-->
-
-    <!-- theme switch js (light and dark)-->
-    <script src="assets/js/theme-change.js"></script>
-    <!-- //theme switch js (light and dark)-->
-
-    <!-- MENU-JS -->
-    <script>
-        $(window).on("scroll", function () {
-            var scroll = $(window).scrollTop();
-
-            if (scroll >= 80) {
-                $("#site-header").addClass("nav-fixed");
-            } else {
-                $("#site-header").removeClass("nav-fixed");
-            }
-        });
-
-        //Main navigation Active Class Add Remove
-        $(".navbar-toggler").on("click", function () {
-            $("header").toggleClass("active");
-        });
-        $(document).on("ready", function () {
-            if ($(window).width() > 991) {
-                $("header").removeClass("active");
-            }
-            $(window).on("resize", function () {
-                if ($(window).width() > 991) {
-                    $("header").removeClass("active");
-                }
-            });
-        });
-    </script>
-    <!-- //MENU-JS -->
-
-    <!-- disable body scroll which navbar is in active -->
-    <script>
-        $(function () {
-            $('.navbar-toggler').click(function () {
-                $('body').toggleClass('noscroll');
-            })
-        });
-    </script>
-    <!-- //disable body scroll which navbar is in active -->
-
-    <!-- bootstrap -->
-   
-
-    
-    <script src="/assets/js/bootstrap.min.js"></script>
-    
-    <script src="/assets/js/index.js"></script>
-    
-</body>
+          
+          </section>
+          <!--Section: Contact v.2-->
+                              </div>
+                              <div class="col-md-6 pl-5">
+                                  <h3 class="bg-secondary text-center" width="600">Get Directions</h3>
+                                  
+                                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.3920784202414!2d54.372035513699025!3d24.471868384238636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e6795a58f6167%3A0x5ed7237523283b74!2sAl%20Wahda%20Commercial%20Tower!5e0!3m2!1sen!2sae!4v1652228510340!5m2!1sen!2sae" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                                  
+                              </div>
+                          </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                 
+                  <section class="pb-4"> 
+                      
+                    <a href="https://api.whatsapp.com/send?phone=971582902264" style="display:inline-block; padding:16px; border-radius: 8rem; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;" >
+                      <i class="fa-brands fa-whatsapp"></i></a>
+                  
+                  </section>
+                  <!-- footer -->
+                  <footer class="footer-w3ls text-center py-5 pt-5" style="background-color:#a7c23d">
+                      <div class="container pt-4">
+                          <div class="row">
+                         <div class="col-md-3 text-center " >
+                             <h4 class="">Pure Home Real Estate</h4>
+                             <p class="">- " we make your dream designs"</p>
+                         </div>
+                         <div class="col-md-3  pl-5">
+                          <h4 class="">Quick Links</h4>
+                          <p class="" ><a href="index2.html" style="text-decoration:none;color:black">Home</p></a>
+                          <p class=""><a href="" style="text-decoration:none;color: black;">About Us</p></a>
+                          <p class=""><a href="contact.html" style="text-decoration:none;color: black;">Contact Us</p></a>
+                          <p class=""><a href="" style="text-decoration:none;color: black;">Privacy Policy</p></a>
+                          <p class=""><a href="" style="text-decoration:none;color: black;">Terms and Conditions</p></a>
+              
+                      </div>
+                      <div class="col-md-3">
+                          <h4 class="">Get in Touch</h4>
+                          <p class="" >help@purehomerealestate.com</p></a>
+                      </div>
+                      <div class="col-md-3">
+                             <button class="btn btn-danger">Be Our Partner</button>
+                      </div>
+                  </div>
+                </div>
+              
+                          <!-- copyright -->
+                          
+                          </footer>
+                  <footer1 class="bg-secondary text-center">
+                    <div class="row ">
+                      <div class="col-md-12">
+                        <p class="copy-right-w3  mt-5 p-2">© 2022 Official Page. All rights reserved | Design by
+                          <a href="https://purehome-re.ae/" target="_blank"> Pure home realestate</a>
+                      </p>
+              
+                      </div>
+              
+                    </div>
+              
+                  </footer1>
+                  <!-- //footer -->
+              
+                  <!-- Js scripts -->
+                  <!-- move top -->
+                  <button onclick="topFunction()" id="movetop" title="Go to top">
+                      <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+                  </button>
+                  <script>
+                      // When the user scrolls down 20px from the top of the document, show the button
+                      window.onscroll = function () {
+                          scrollFunction()
+                      };
+              
+                      function scrollFunction() {
+                          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                              document.getElementById("movetop").style.display = "block";
+                          } else {
+                              document.getElementById("movetop").style.display = "none";
+                          }
+                      }
+              
+                      // When the user clicks on the button, scroll to the top of the document
+                      function topFunction() {
+                          document.body.scrollTop = 0;
+                          document.documentElement.scrollTop = 0;
+                      }
+                  </script>
+                  <!-- //move top -->
+              
+                  <!-- common jquery plugin -->
+                  <script src="assets/js/jquery-3.3.1.min.js"></script>
+                  <!-- //common jquery plugin -->
+              
+                  <!-- lightbox -->
+                  <script src="assets/js/lightbox-plus-jquery.min.js"></script>
+                  <!-- lightbox -->
+              
+                  <!-- testimonials owlcarousel -->
+                  <script src="assets/js/owl.carousel.js"></script>
+                  <script>
+                      $(document).ready(function () {
+                          $('.owl-two').owlCarousel({
+                              loop: true,
+                              margin: 30,
+                              nav: false,
+                              responsiveClass: true,
+                              autoplay: true,
+                              autoplayTimeout: 5000,
+                              autoplaySpeed: 1000,
+                              autoplayHoverPause: false,
+                              responsive: {
+                                  0: {
+                                      items: 1,
+                                      nav: false
+                                  },
+                                  480: {
+                                      items: 1,
+                                      nav: false
+                                  },
+                                  667: {
+                                      items: 1,
+                                      nav: false
+                                  },
+                                  1000: {
+                                      items: 1,
+                                      nav: false
+                                  }
+                              }
+                          })
+                      })
+                  </script>
+                  <!-- //script for Testimonials-->
+              
+                  <!-- theme switch js (light and dark)-->
+                  <script src="assets/js/theme-change.js"></script>
+                  <!-- //theme switch js (light and dark)-->
+              
+                  <!-- MENU-JS -->
+                  <script>
+                      $(window).on("scroll", function () {
+                          var scroll = $(window).scrollTop();
+              
+                          if (scroll >= 80) {
+                              $("#site-header").addClass("nav-fixed");
+                          } else {
+                              $("#site-header").removeClass("nav-fixed");
+                          }
+                      });
+              
+                      //Main navigation Active Class Add Remove
+                      $(".navbar-toggler").on("click", function () {
+                          $("header").toggleClass("active");
+                      });
+                      $(document).on("ready", function () {
+                          if ($(window).width() > 991) {
+                              $("header").removeClass("active");
+                          }
+                          $(window).on("resize", function () {
+                              if ($(window).width() > 991) {
+                                  $("header").removeClass("active");
+                              }
+                          });
+                      });
+                  </script>
+                  <!-- //MENU-JS -->
+              
+                  <!-- disable body scroll which navbar is in active -->
+                  <script>
+                      $(function () {
+                          $('.navbar-toggler').click(function () {
+                              $('body').toggleClass('noscroll');
+                          })
+                      });
+                  </script>
+                  <!-- //disable body scroll which navbar is in active -->
+              
+                  <!-- bootstrap -->
+                 
+              
+                  
+                  <script src="/assets/js/bootstrap.min.js"></script>
+                  
+                  <script src="/assets/js/index.js"></script>
+                  <!--Start of Tawk.to Script-->
+              <script type="text/javascript">
+                var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/62791a5db0d10b6f3e714eef/1g2kgtvuh';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+                })();
+                </script>
+                <!--End of Tawk.to Script-->
+               </body>
 </html>
